@@ -1,23 +1,22 @@
-import {SET_COUNT} from "./constants";
+import { SET_REPOS } from "./constants";
 
 const initialState = {
     items: [],
     isFetching: true,
-    count: 0
 }
 
 export default function reposReducer (state = initialState, action)  {
     switch (action.type) {
-        case SET_COUNT:
+        case SET_REPOS:
             return {
                 ...state,
-                count: action.payload
+                items: action.payload.items
             }
         default:
             return state
     }
 }
 
-export const setCount = (count) => ({
-    type: SET_COUNT, payload: count
+export const setRepos = (repos) => ({
+    type: SET_REPOS, payload: repos
 })
